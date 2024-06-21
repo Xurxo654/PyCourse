@@ -1,4 +1,5 @@
 import os
+import time
 
 class Canvas:
     def __init__(self, width, height):
@@ -16,7 +17,7 @@ class Canvas:
         self.clear()
         for y in range(self._y):
             print(''.join([col[y] if col[y] != '' else ' ' for col in self._canvas]))
-
+        time.sleep(.2)
 
 class TerminalScribe:
     def __init__(self, canvas):
