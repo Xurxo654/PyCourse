@@ -31,23 +31,23 @@ class TerminalScribe:
         self._canvas.setPos(self.pos, self.trail)
         self._canvas.print()
 
-    def drawSquare(self, size):
-        pos = [0, 0]
-
+    def drawSquare(self, size, pos):
+        x, y = pos
+        
         for i in range(size - 1):
-            self.draw([i, pos[0]])
+            self.draw([x + i, y])
 
         for i in range(size):
-            self.draw([size -1, i])
+            self.draw([x + size - 1, y + i])
 
         for i in range(size):
-           self.draw([size-1 - i, size - 1])
+           self.draw([x + size - 1 - i, y + size - 1])
 
         for i in range(size-1):
-            self.draw([pos[0], size-1-i])
+            self.draw([x, y + size-1-i])
         
 
 canvas = Canvas(20, 20)
 scribe = TerminalScribe(canvas)
 
-scribe.drawSquare(5)
+scribe.drawSquare(5, [5,3])
